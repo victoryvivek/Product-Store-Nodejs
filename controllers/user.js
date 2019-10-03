@@ -14,7 +14,8 @@ exports.login=(req,res,next)=>{
             throw err;
         }
         currentUser=user;
-        return bcrypt.compare(user.password,password);
+        console.log(user.email+' ' + password + ' '+user.password);
+        return bcrypt.compare(password, user.password);
 
     }).then(isEqual=>{
         if(!isEqual){

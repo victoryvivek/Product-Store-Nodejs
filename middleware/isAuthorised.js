@@ -8,10 +8,10 @@ module.exports=(req,res,next)=>{
         throw err;
     }
     const token=authHeader.split(' ')[1];
-
+    console.log(token);
     let decodedToken;
     try{
-        decodedToke = jwt.verify(token, 'secretkey');
+        decodedToken = jwt.verify(token, 'secretkey');
     }catch(err){
         err.statusCode=500;
         throw err;
